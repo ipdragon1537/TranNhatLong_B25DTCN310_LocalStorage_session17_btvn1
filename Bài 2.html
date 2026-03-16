@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công việc chuẩn bị Tết</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5e6d3 0%, #fff5e6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border: 1px solid #ffb347;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #c41e3a;
+            margin-bottom: 8px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #ffb347;
+            padding-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #b45f06;
+            font-size: 14px;
+            margin-top: -5px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .todo-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .todo-item {
+            padding: 15px 20px;
+            margin: 8px 0;
+            background: #fff9f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ffd7a7;
+            position: relative;
+        }
+
+        .todo-item:hover {
+            background: #fff2e0;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(255, 180, 71, 0.2);
+            border-color: #ffb347;
+        }
+
+        .todo-item.done {
+            background: #e8f5e9;
+            border-color: #81c784;
+            color: #2e7d32;
+            text-decoration: line-through;
+            order: 1;
+        }
+
+        .todo-item.done::before {
+            content: "✓";
+            font-weight: bold;
+            margin-right: 10px;
+            color: #2e7d32;
+            font-size: 18px;
+        }
+
+        .todo-item:not(.done)::before {
+            content: "○";
+            margin-right: 10px;
+            color: #ff9800;
+            font-size: 18px;
+        }
+
+        .status-bar {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #ffb347;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #b45f06;
+            font-size: 13px;
+        }
+
+        .status-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .badge {
+            background: #ffb347;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .storage-info {
+            color: #b45f06;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .storage-info i {
+            font-style: normal;
+            font-size: 14px;
+        }
+
+        .reset-btn {
+            background: #c41e3a;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: #a01830;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #b45f06;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧧 Công việc chuẩn bị Tết 🧧</h1>
+        <div class="subtitle">Click để đánh dấu hoàn thành</div>
+
+        <ul class="todo-list" id="todoList"></ul>
+
+        <div class="status-bar">
+            <div class="status-info">
+                <span class="badge" id="completedCount">0</span>
+                <span>việc đã xong</span>
+            </div>
+            <div class="storage-info">
+                <span>💾 localStorage</span>
+                <button class="reset-btn" id="resetBtn">Reset mặc định</button>
+            </div>
+        </div>
+        <div class="footer">
+            Trạng thái được lưu tự động vào localStorage • Refresh để kiểm tra
+        </div>
+    </div>
+
+    <script src="Bài 2.js"></script>
+</body>
+</html>
